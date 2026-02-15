@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Proposal</title>
+
+<style>
+  body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    background:#ffe6f0;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+  }
+
+  h1{
+    color:#ff3366;
+    margin-bottom:10px;
+  }
+
+  /* 😈 teasing subtitle */
+  .tease{
+    color:#cc3366;
+    margin-bottom:25px;
+    font-size:18px;
+  }
+
+  button{
+    padding:12px 24px;
+    font-size:18px;
+    margin:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.25s ease;
+  }
+
+  #yesBtn{ background:#33cc66; color:white; }
+  #noBtn{
+    background:#ff6666;
+    color:white;
+    position:relative;
+  }
+
+  /* 💖 Heart animation */
+  #heart{
+    font-size:80px;
+    margin-top:20px;
+    opacity:0;
+    transform:scale(0);
+    transition:1s ease;
+  }
+
+  #clickBtn{
+    display:none;
+    margin-top:20px;
+    background:#ff99cc;
+    color:white;
+  }
+
+  #note{
+    display:none;
+    margin-top:20px;
+    font-size:28px;
+    color:#cc3366;
+    max-width:600px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Will You Be My Valentine?</h1>
+
+<p class="tease"><b>Warning !!</b> the no button got trust issues </p>
+
+<button id="yesBtn">Yes</button>
+<button id="noBtn">No</button>
+
+<div id="heart">💖</div>
+
+<button id="clickBtn">Click Me!</button>
+
+<div id="note">
+  💌 Thank you for choosing me — not just today, but every day.
+  I promise this date will be 11,000km special 💖
+</div>
+
+<script>
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.getElementById('yesBtn');
+const heart = document.getElementById('heart');
+const clickBtn = document.getElementById('clickBtn');
+const note = document.getElementById('note');
+
+/* 😈 No button runs away */
+noBtn.addEventListener('mouseenter',()=>{
+  const x = Math.random()*300-150;
+  const y = Math.random()*200-100;
+  noBtn.style.transform = `translate(${x}px,${y}px)`;
+});
+
+/* 💖 Yes animation */
+yesBtn.addEventListener('click',()=>{
+  heart.style.opacity='1';
+  heart.style.transform='scale(1.3)';
+
+  setTimeout(()=>{
+    clickBtn.style.display='inline-block';
+  },900);
+});
+
+/* 💌 Final note */
+clickBtn.addEventListener('click',()=>{
+  note.style.display='block';
+});
+</script>
+
+</body>
+</html>
